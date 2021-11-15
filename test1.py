@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 # нужно установить tesseract-ocr-w64-setup-v5.0.0-rc1.20211030.exe
+# https://pythobyte.com/pytesseract-simple-python-optical-character-recognition-14a4bd3c/
 # https://stackoverflow.com/questions/50655738/how-do-i-resolve-a-tesseractnotfounderror
 # x86
 #pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
@@ -11,7 +12,7 @@ from PIL import Image
 pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 def main():
     # читать изображение с помощью OpenCV
-    image = cv2.imread(r'''temp\test2.png''')
+    image = cv2.imread(r'''temp\test3.png''')
     # или вы можете использовать подушку
     #image = Image.open('C:/Users/galimov/PycharmProjects/pyOCRtext1/temp/test1.png')
     # получаем строку
