@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 # нужно установить tesseract-ocr-w64-setup-v5.0.0-rc1.20211030.exe
+# https://stackoverflow.com/questions/50655738/how-do-i-resolve-a-tesseractnotfounderror
 # x86
 #pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 # x86_64
