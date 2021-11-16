@@ -14,10 +14,11 @@ pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesse
 def main():
     # читать изображение с помощью OpenCV
     #filename = r'''temp\example_01.png'''
-    image = r'''temp\111.png'''
+    image = r'''temp\table1.png'''
 
     #preprocess = "thresh"
     preprocess = "blur"
+    lang = 'rus'
 
     # загрузить образ и преобразовать его в оттенки серого
     image = cv2.imread(image)
@@ -38,7 +39,7 @@ def main():
     filename = "{}.png".format(os.getpid())
     cv2.imwrite(filename, gray)
     # загрузка изображения в виде объекта image Pillow, применение OCR, а затем удаление временного файла
-    text = pytesseract.image_to_string(Image.open(filename))
+    text = pytesseract.image_to_string(Image.open(filename), lang)
     #os.remove(filename)
     print(text)
 
