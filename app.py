@@ -30,6 +30,8 @@ def upload_page():
         if 'file' not in request.files:
             return render_template('upload.html', msg='No file selected')
         file = request.files['file']
+        #lang = 'rus'
+        lang = request.form.getlist('selectID')[0]
         # if no file is selected
         if file.filename == '':
             return render_template('upload.html', msg='No file selected')
@@ -37,7 +39,7 @@ def upload_page():
         if file and allowed_file(file.filename):
 
             # call the OCR function on it
-            extracted_text = ocr_core(file,'rus')
+            extracted_text = ocr_core(file,lang)
 
             # extract the text and display it
             return render_template('upload.html',
