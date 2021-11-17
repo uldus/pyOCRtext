@@ -3,7 +3,7 @@ import cv2
 pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 def main():
     # читать изображение с помощью OpenCV
-    filename = r'''temp\table1.png'''
+    filename = r'''/temp/test3.png'''
     lang = 'rus'
     image = cv2.imread(filename)
 

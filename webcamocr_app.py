@@ -1,11 +1,14 @@
 import os
+import time
 from flask import Flask, render_template, request
 
 # import our OCR function
 from ocr_core import ocr_core
+from webcam_test1 import cam_save
+
 
 # define a folder to store and later serve the images
-UPLOAD_FOLDER = '/static/uploads/'
+UPLOAD_FOLDER = 'static\\uploads\\'
 
 # allow files of a specific type
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
@@ -50,10 +53,31 @@ def upload_page():
         return render_template('upload.html')
 
 # route and function to handle the upload page
+
 @app.route('/camocr', methods=['GET', 'POST'])
 def camocr_page():
+
     if request.method == 'POST':
-        return render_template('camocr.html')
+        if request.form['submit_button'] == 'Photo':
+            global fn
+            fn = UPLOAD_FOLDER + time.strftime("%Y%m%d-%H%M%S") + '.jpg'
+            print(fn)
+            cam_save(fn)
+            return render_template('camocr.html', msg='Successfully processed',
+                                   img_src=fn)
+        elif request.form['submit_button'] == 'OCR':
+            lang = 'rus'
+            print(fn)
+            #extracted_text = fn
+            extracted_text = ocr_core(fn, lang)
+
+            # extract the text and display it
+            return render_template('camocr.html',
+                                   msg='Successfully processed',
+                                   extracted_text=extracted_text,
+                                   img_src=fn)
+
+
     elif request.method == 'GET':
         return render_template('camocr.html')
 if __name__ == '__main__':

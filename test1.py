@@ -14,10 +14,10 @@ pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesse
 def main():
     # читать изображение с помощью OpenCV
     #filename = r'''temp\example_01.png'''
-    image = r'''temp\table1.png'''
+    image = r'''temp\\test3.png'''
 
-    #preprocess = "thresh"
-    preprocess = "blur"
+    preprocess = "thresh"
+    #preprocess = "blur"
     lang = 'rus'
 
     # загрузить образ и преобразовать его в оттенки серого
