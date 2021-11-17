@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Upload image</title>
+    <title>Camera OCR Form</title>
 </head>
 <body>
-    {% if msg %}
+      {% if msg %}
     <h1>{{ msg }}</h1>
     {% endif %}
     <h1>Upload new File</h1>
     <form method=post enctype=multipart/form-data>
-        <p><input type=file name=file></p>
-        <p>Language</p>
-        <p><select name='selectID'>
-            <option value='rus'>Russian</option>
-            <option value='eng'>English</option>
-        </select></p>
-        <p><input type=submit value=Upload></p>
+        <p><input type=submit value=Снять></p>
+        <p><input type=submit value=Сканировать></p>
     </form>
     <h1>Result:</h1>
     {% if img_src %}
@@ -28,9 +23,8 @@
     {% else %}
     The extracted text will be displayed here
     {% endif %}
-<br><br><br><br><a href="./">На главную</a>
+
+
+    <br><br><br><br><a href="./">На главную</a>
 </body>
-
-
-
 </html>
